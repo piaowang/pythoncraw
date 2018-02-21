@@ -8,7 +8,7 @@ def next_page():
     for i in all_a:
         href = i['href']  # 取出a标签的href 属性
         n+=1
-        html_a = 'http://yxpjw.club/xiurenwang/2017/1207/'+ href
+        html_a = 'http://xpjw.club/iurenwang/2017/1207/'+ href
         html = requests.get(html_a, headers=headers)  ##上面说过了
         html_Soup = BeautifulSoup(html.text, 'lxml')  ##上面说过了
 
@@ -28,13 +28,13 @@ def print_picture():
 headers = {'User-Agent':"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}##浏览器请求头（大部分网站没有这个请求头会报错、请务必加上哦）
 
 for i in range(20):
-    first_url = 'http://yxpjw.club/2017/1130/4268.html'
+    first_url = 'http://xpjw.club/2017/1130/4268.html'
     start_html = requests.get(first_url,headers=headers)  ##使用requests中的get方法来获取all_url(就是：http://www.mzitu.com/all这个地址)的内容 headers为上面设置的请求头、请务必参考requests官方文档解释
     Soup = BeautifulSoup(start_html.text, 'lxml')  ##使用BeautifulSoup来解析我们获取到的网页（‘lxml’是指定的解析器 具体请参考官方文档哦）
     print_picture()
 
     if i != 0 and i !=1:
-        all_url = 'http://yxpjw.club/2017/1130/4268'+'_'+str(i)+".html"
+        all_url = 'http://xpjw.club/2017/1130/4268'+'_'+str(i)+".html"
         print all_url
         start_html = requests.get(all_url,  headers=headers)  ##使用requests中的get方法来获取all_url(就是：http://www.mzitu.com/all这个地址)的内容 headers为上面设置的请求头、请务必参考requests官方文档解释
         Soup = BeautifulSoup(start_html.text, 'lxml') ##使用BeautifulSoup来解析我们获取到的网页（‘lxml’是指定的解析器 具体请参考官方文档哦）
